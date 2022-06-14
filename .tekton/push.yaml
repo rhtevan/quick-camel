@@ -53,22 +53,30 @@ spec:
             value: $(params.revision)
       # Customize this task if you like, or just do a taskRef
       # to one of the hub task.
-      - name: noop-task
+      - name: package-build-deploy
         runAfter:
           - fetch-repository
+#        workspaces:
+#          - name: source
+#            workspace: source
+#        taskSpec:
+#          workspaces:
+#            - name: source
+#          steps:
+#            - name: package
+#              image: registry.access.redhat.com/ubi8/ubi-micro:8.5
+#              workingDir: $(workspaces.source.path)
+#              script: |
+#                exit 0
+        taskRef:
+          name: openshift-client
         workspaces:
-          - name: source
+          - name: manifest-dir
             workspace: source
-        taskSpec:
-          workspaces:
-            - name: source
-          steps:
-            - name: noop-task
-              image: registry.access.redhat.com/ubi8/ubi-micro:8.5
-              workingDir: $(workspaces.source.path)
-              script: |
-                which git
-                exit 0
+        params:
+          - name: SCRIPT
+            value: |
+              oc whoami
   workspaces:
   - name: source
     volumeClaimTemplate:
