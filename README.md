@@ -1,3 +1,3 @@
 # quick-camel
-Quick Camel &amp; PAC Demo
-2022-06-13
+Quick Camel & PAC Demo
+> Date: 2022-06-13
