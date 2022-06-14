@@ -67,10 +67,8 @@ spec:
               image: quay.io/rhtevan/quarkus-cli:latest
               workingDir: $(workspaces.source.path)
               script: |-
-                id
-                pwd
-                oc version
-                quarkus version 
+                oc whoami
+                quarkus extension list
   workspaces:
   - name: source
     volumeClaimTemplate:
