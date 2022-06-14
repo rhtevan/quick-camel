@@ -76,7 +76,8 @@ spec:
             workspace: source
         params:
           - name: SCRIPT
-            value: |
+            value: |-
+              id
               oc whoami
   workspaces:
   - name: source
