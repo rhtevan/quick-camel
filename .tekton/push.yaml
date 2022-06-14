@@ -67,7 +67,7 @@ spec:
               image: registry.access.redhat.com/ubi8/ubi-micro:8.5
               workingDir: $(workspaces.source.path)
               script: |
-                ls -alrt
+                which git
                 exit 0
   workspaces:
   - name: source
