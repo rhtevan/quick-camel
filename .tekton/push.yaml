@@ -56,29 +56,21 @@ spec:
       - name: package-build-deploy
         runAfter:
           - fetch-repository
-#        workspaces:
-#          - name: source
-#            workspace: source
-#        taskSpec:
-#          workspaces:
-#            - name: source
-#          steps:
-#            - name: package
-#              image: registry.access.redhat.com/ubi8/ubi-micro:8.5
-#              workingDir: $(workspaces.source.path)
-#              script: |
-#                exit 0
-        taskRef:
-          name: openshift-client
-          kind: ClusterTask
         workspaces:
-          - name: manifest-dir
+          - name: source
             workspace: source
-        params:
-          - name: SCRIPT
-            value: |-
-              id
-              oc whoami
+        taskSpec:
+          workspaces:
+            - name: source
+          steps:
+            - name: package
+              image: quay.io/rhtevan/quarkus-cli:latest
+              workingDir: $(workspaces.source.path)
+              script: |-
+                id
+                pwd
+                oc version
+                quarkus version 
   workspaces:
   - name: source
     volumeClaimTemplate:
