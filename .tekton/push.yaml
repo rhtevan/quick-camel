@@ -70,6 +70,7 @@ spec:
 #                exit 0
         taskRef:
           name: openshift-client
+          kind: ClusterTask
         workspaces:
           - name: manifest-dir
             workspace: source
