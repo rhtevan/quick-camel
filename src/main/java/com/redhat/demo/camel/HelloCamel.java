@@ -10,7 +10,7 @@ public class HelloCamel extends RouteBuilder {
     public void configure() throws Exception {
 
         // Write your routes here, for example:
-        from("timer:java?period={{time:1000}}").routeId("java")
+        from("timer:java?period={{time:10000}}").routeId("java")
             .setBody()
                 .simple("Hello Camel from ${routeId}")
             .log("${body}");
