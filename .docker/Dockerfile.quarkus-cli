@@ -17,9 +17,7 @@ WORKDIR $HOME
 # Install JBang, Java and Quarkus CLI
 USER quarkus
 RUN curl -Ls https://sh.jbang.dev | bash -s - trust add https://repo1.maven.org/maven2/io/quarkus/quarkus-cli/ && \
-    curl -Ls https://sh.jbang.dev | bash -s - app install --fresh --force quarkus@quarkusio && \
-    source /quarkus/.bashrc && \
-    jbang app install --fresh --force quarkus@quarkusio
+    curl -Ls https://sh.jbang.dev | bash -s - app install --fresh --force quarkus@quarkusio
 
 # Fix file permission
 USER 0
@@ -28,4 +26,4 @@ RUN chgrp -R 0 /quarkus && \
 
 USER quarkus
 
-CMD ["quarkus", "version"]
+CMD ["quarkus", "--help"]
