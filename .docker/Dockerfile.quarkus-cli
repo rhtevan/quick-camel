@@ -1,7 +1,7 @@
 FROM quay.io/openshift/origin-cli:latest
-MAINTAINER Evan Zhang <evan.zhang@redhat.com>
 
-LABEL io.k8s.display-name="Quarkus CLI" \
+LABEL com.redhat.demo.image.authors="evan.zhang@redhat.com" \
+      io.k8s.display-name="Quarkus CLI" \
       io.k8s.description="The quarkus command lets you create projects, manage extensions and do essential build and dev commands using the underlying project build tool." \
       io.openshift.tags="quarkus,cli"
 
